@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../scss/style.scss">
+    <title>Поиск фильмов</title>
+</head>
+
+<body>
+
+    <header class="header"></header>
+
+    <aside class="sidebar"></aside>
+
+    <section class="search-page">
+        <div class="search-page__content-container">
+            <h1 class="search-page__title">Поиск</h1>
+
+            <form action="#" class="search-page__form">
+                <div class="search-page__input-container">
+                    <input type="text" class="search-page__input" id="searchInput" placeholder="Поиск по названию"
+                        required autocomplete="off" />
+                    <span class="search-page__icon" id="clearInput">&times;</span>
+                    <ul class="search-page__history-container" id="searchHistory">
+                    </ul>
+                </div>
+            </form>
+
+            <div class="genres">
+                <a href="#" class="genres__item comedy">
+                    <p class="genres__text">Комедии</p>
+                </a>
+                <a href="#" class="genres__item melodram">
+                    <p class="genres__text">Мелодрамы</p>
+                </a>
+                <a href="#" class="genres__item action">
+                    <p class="genres__text">Боевики</p>
+                </a>
+                <a href="#" class="genres__item family">
+                    <p class="genres__text">Семейные</p>
+                </a>
+                <a href="#" class="genres__item horror">
+                    <p class="genres__text">Ужасы</p>
+                </a>
+                <a href="#" class="genres__item criminal">
+                    <p class="genres__text">Криминальные</p>
+                </a>
+                <a href="#" class="genres__item dramas">
+                    <p class="genres__text">Драмы</p>
+                </a>
+                <a href="#" class="genres__item fantasy">
+                    <p class="genres__text">Фэнтези</p>
+                </a>
+                <a href="#" class="genres__item thrillers">
+                    <p class="genres__text">Триллеры</p>
+                </a>
+                <a href="#" class="genres__item adventures">
+                    <p class="genres__text">Приключения</p>
+                </a>
+            </div>
+
+            <div class="recommend">
+                <h2 class="recommend__title">Рекомендуем</h2>
+                <div class="recommend__items">
+                </div>
+                <button class="recommend__button">Показать еще</button>
+            </div>
+
+            <button class="search-page__scroll-to-top" style="display: none;">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                    <path
+                        d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z" />
+                </svg>
+            </button>
+
+        </div>
+    </section>
+
+    <footer class="footer"></footer>
+
+    <script type="module" src="../js/main.js"></script>
+</body>
+
+</html>
