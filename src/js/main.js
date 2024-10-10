@@ -3,8 +3,11 @@ import { loadSidebar } from "./modules/sidebar";
 
 import { movies } from "./modules/movies";
 
-
-import { getRecommendMovies, initEventListeners, loadHistoryFromLocalStorage, } from "./modules/search";
+import {
+  getRecommendMovies,
+  initEventListeners,
+  loadHistoryFromLocalStorage,
+} from "./modules/search";
 
 import { getPopularMovies } from "./modules/popular";
 import { initSeriesModule } from "./modules/series";
@@ -33,14 +36,9 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
-
-
-  window.addEventListener("resize", () => {
-    updateItemsPerView();
-    showNextItems();
-  });
+window.addEventListener("resize", () => {
+  updateItemsPerView();
+  showNextItems();
 });
 
 movies();
-
-
