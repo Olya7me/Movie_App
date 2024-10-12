@@ -7,9 +7,6 @@ import {
   loadHistoryFromLocalStorage,
 } from "./modules/search";
 
-//удалить
-import { initSeriesModule } from "./modules/series";
-
 import { getMainMovies, toggleBtn } from "./modules/home";
 import {
   getMovies,

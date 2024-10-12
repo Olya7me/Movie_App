@@ -54,6 +54,8 @@ function createMovieElement(movie) {
       ? "Фильм"
       : movie.type === "TV_SERIES"
       ? "Сериал"
+      : movie.type === "PREMIERE"
+      ? "Фильм"
       : "Шоу";
 
   movieElement.innerHTML = `
