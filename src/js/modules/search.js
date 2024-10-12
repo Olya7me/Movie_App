@@ -1,3 +1,4 @@
+import { fetchFromApi } from './fetchApi'
 const apiSearchUrl = "https://kinopoiskapiunofficial.tech/api/v2.1/films/search-by-keyword?keyword=";
 const apiRecommendedUrl = "https://kinopoiskapiunofficial.tech/api/v2.2/films/collections?type=TOP_POPULAR_ALL&page=1";
 const apiGenresUrl = "https://kinopoiskapiunofficial.tech/api/v2.2/films/collections?type=TOP_POPULAR_ALL&page=";
@@ -77,45 +78,11 @@ export function loadHistoryFromLocalStorage() {
     }
 }
 
-
-//Универсальная ф-я запроса АПИ
-async function fetchFromApi(url) {
-    try {
-        const response = await fetch(url, {
-            headers: {
-                "Content-Type": "application/json",
-                "X-API-KEY": apiKey,
-            }
-        });
-
-        if (!response.ok) {
-            throw new Error(`Ошибка: ${response.status} ${response.statusText}`);
-        }
-
-        const responseData = await response.json();
-        const dataKeys = ['items', 'films', 'genres'];
-        const data = dataKeys.find(key => Array.isArray(responseData[key]) && responseData[key].length > 0);
-
-        if (!data) {
-            throw new Error("Ничего не найдено");
-        }
-
-        return responseData[data];
-
-    } catch (error) {
-        if (error.message.includes("Ошибка HTTP")) {
-            recommendTitle.innerHTML = `Ошибка при запросе к API: ${error.message}`;
-        } else {
-            recommendTitle.innerHTML = `Кажется, что что-то пошло не так: ${error.message}`;
-        }
-        return [];
-    }
-}
 //Функция поиска фильмов
 export async function searchMovies(keyword) {
     try {
         recommendTitle.innerHTML = "Поиск по совпадениям";
-        const data = await fetchFromApi(apiSearchUrl + keyword);
+        const data = await fetchFromApi(apiSearchUrl + keyword, apiKey, recommendTitle);
         allMovies = data;
 
         recommendItems.innerHTML = '';
@@ -130,7 +97,7 @@ export async function searchMovies(keyword) {
 export async function getRecommendMovies() {
     try {
         showSkeleton();
-        const data = await fetchFromApi(apiRecommendedUrl);
+        const data = await fetchFromApi(apiRecommendedUrl, apiKey, recommendTitle);
         allMovies = data;
         recommendItems.innerHTML = '';
         renderMovies(allMovies);
@@ -171,7 +138,7 @@ async function searchByGenre(genre, genreText) {
         let filteredMovies = [];
 
         for (let page = 1; page <= 5; page++) {
-            const data = await fetchFromApi(apiGenresUrl + page);
+            const data = await fetchFromApi(apiGenresUrl + page, apiKey, recommendTitle);
             filteredMovies = filteredMovies.concat(data);
         }
 

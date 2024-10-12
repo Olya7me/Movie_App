@@ -1,96 +1,57 @@
-const container = document.querySelector(".popular-page__content");
-const arrow_buttonNext = document.querySelector(".arrow-next");
-const arrow_buttonPrev = document.querySelector(".arrow-prev");
-let popularMovies = [];
-let offset = 0; /* Переменная начальной точки отсчета фильмов */
-let limit = 5; /* Переменная лимита фильмов за раз*/
+import { showSkeleton } from './skeletons';
+import { fetchFromApi } from './fetchApi';
 
-/* Функция получения данных о фильмах с api */
-export async function getPopularMovies() {
-  try {
-    const response = await fetch(
-      "https://kinopoiskapiunofficial.tech/api/v2.2/films/collections?type=TOP_POPULAR_MOVIES&page=1",
-      {
-        method: "GET",
-        headers: {
-          "X-API-KEY": "dd146e83-6098-4c58-bea6-a52186942de2",
-          "Content-Type": "application/json",
-        },
-      }
-    );
-    const responseJson = await response.json();
-    popularMovies = responseJson.items;
-    renderPopularMovies(offset, limit);
-    console.log(popularMovies);
-  } catch (error) {
-    document.querySelector(
-      ".popular-page__title"
-    ).innerHTML = `Кажется, что-то пошло не так: ${error.message}`;
-    arrow_buttonNext.style.display = "none";
-    const image = document.createElement("img");
-    image.style.margin = "0 auto";
-    image.src =
-      "src/img/popular/foni-papik-pro-8htj-p-kartinki-oshibka-na-prozrachnom-fone-25.png";
-    container.append(image);
-  }
+export const apiPopularMoviesUrl = "https://kinopoiskapiunofficial.tech/api/v2.2/films/collections?type=TOP_POPULAR_MOVIES&page=2";
+export const popularMoviesTitle = document.querySelector(".popular-movies__title");
+export const popularMoviesItems = document.querySelector(".popular-movies__items");
+
+export const apiSeasonUrl = "https://kinopoiskapiunofficial.tech/api/v2.2/films/collections?type=VAMPIRE_THEME&page=1";
+export const seasonTitle = document.querySelector(".season-theme__title");
+export const seasonItems = document.querySelector(".season-theme__items ");
+
+export const apiComicsUrl = "https://kinopoiskapiunofficial.tech/api/v2.2/films/collections?type=COMICS_THEME&page=1";
+export const comicsTitle = document.querySelector(".comics-movies__title");
+export const comicsItems = document.querySelector(".comics-movies__items ");
+
+
+const apiKey = "a72994a0-2897-409b-943f-b58b813ec6ce";
+let allMovies = [];
+
+
+export async function getMovies(url, title, container) {
+    try {
+        showSkeleton(container);
+        const data = await fetchFromApi(url, apiKey, title);
+        allMovies = data;
+        renderMovies(allMovies, container);
+    } catch (error) {
+        title.innerHTML = `Кажется, что что-то пошло не так: ${error.message}`;
+    }
 }
+function renderMovies(movies, container) {
+    container.innerHTML = '';
 
-/* Функция визуализации каждых последующих или предыдущих пяти фильмов */
-function renderPopularMovies(minIndex, maxIndex) {
-  for (let i = minIndex; i < maxIndex; i++) {
-    let movieWrapper = document.createElement("div");
-    movieWrapper.classList.add("popular-page__content-item");
-    let image = document.createElement("img");
-    image.classList.add("popular-page__movie-image");
-    image.src = `${popularMovies[i].posterUrlPreview}`;
-    image.alt = `${popularMovies[i].nameRu}`;
-    let p1 = document.createElement("p");
-    p1.classList.add("popular-page__movie-info");
-    p1.textContent = `${popularMovies[i].nameRu} (${popularMovies[i].year})`;
-    let p2 = document.createElement("p");
-    p2.classList.add("popular-page__movie-genres");
-    p2.textContent = `${popularMovies[i].genres
-      .map((genre) => `${genre.genre}`)
-      .join(", ")}`;
-    const buttonLink = document.createElement("a");
-    buttonLink.textContent = "Смотреть";
-    buttonLink.className = "popular-page__watch-button";
-    buttonLink.setAttribute(
-      "href",
-      `https://www.kinopoisk.ru/film/${popularMovies[i].kinopoiskId}/`
-    );
-    buttonLink.setAttribute("target", "blank");
-    movieWrapper.append(image, p1, p2, buttonLink);
-    container.append(movieWrapper);
-  }
+    movies.forEach(movie => {
+        const movieElement = createUniversalMovieEl(movie);
+        container.appendChild(movieElement);
+    });
 }
+function createUniversalMovieEl(movie) {
+    const movieElement = document.createElement("a");
+    movieElement.classList.add("movies-item");
 
-/* Функции видимости и переключения кнопок 'следующая-предыдущая страницы'*/
-if (container && arrow_buttonNext && arrow_buttonPrev) {
-  arrow_buttonNext.addEventListener("click", next);
-  arrow_buttonPrev.addEventListener("click", previous);
-  arrow_buttonPrev.style.display = "none";
+    const movieType = movie.type === 'FILM' ? 'Фильм' : (movie.type === 'TV_SERIES' ? 'Сериал' : 'Шоу');
 
-}
-
-function next() {
-  container.innerHTML = "";
-  offset = offset + limit;
-  renderPopularMovies(offset, offset + limit);
-  arrow_buttonPrev.style.display = "block";
-  if (offset == 15) {
-    arrow_buttonNext.style.display = "none";
-  }
-}
-
-function previous() {
-  container.innerHTML = "";
-  offset = offset - limit;
-  renderPopularMovies(offset, offset + limit);
-  if (offset == 0) {
-    arrow_buttonPrev.style.display = "none";
-  }
-  if (offset < 15) {
-    arrow_buttonNext.style.display = "block";
-  }
+    movieElement.innerHTML = `
+        <img class="item-image" src="${movie.posterUrlPreview}" alt="${movie.nameRu}">
+        <h3 class="item-title">${movie.nameRu}</h3>
+        <div class="item-info">
+            <div class="item-description">
+                <p class="item-year">${movie.year},</p>
+                <p class="item-type">${movieType}</p>
+            </div>
+            <p class="item-genre">${movie.genres.map(genre => `${genre.genre}`).join(', ')}</p>
+        </div>
+    `;
+    return movieElement;
 }

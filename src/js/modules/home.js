@@ -1,3 +1,4 @@
+import { fetchFromApi } from './fetchApi'
 const movieContainer = document.querySelector(".movie__content");
 const movieContent = document.querySelector(".movie");
 const apiMoviesUrl =
@@ -7,40 +8,10 @@ const apiKey = "b6027775-465a-49ee-aecc-0731f7b27b31";
 let movies = []; // Массив для хранения фильмов
 let currentMovieIndex = 0; // Индекс текущего фильма
 
-// Функция для получения данных из API
-async function fetchFromApi(url) {
-  try {
-    const response = await fetch(url, {
-      headers: {
-        "Content-Type": "application/json",
-        "X-API-KEY": apiKey,
-      },
-    });
-
-    if (!response.ok) {
-      throw new Error(`Ошибка: ${response.status} ${response.statusText}`);
-    }
-
-    const responseData = await response.json();
-    const dataKeys = ["items", "films", "genres"];
-    const data = dataKeys.find(
-      (key) => Array.isArray(responseData[key]) && responseData[key].length > 0
-    );
-
-    if (!data) {
-      throw new Error("Ничего не найдено");
-    }
-
-    return responseData[data];
-  } catch (error) {
-    return [];
-  }
-}
-
 //Функция получения фильмов
-export async function getMovies() {
+export async function getMainMovies() {
   try {
-    movies = await fetchFromApi(apiMoviesUrl); // Получаем фильмы
+    movies = await fetchFromApi(apiMoviesUrl, apiKey, movieContent); // Получаем фильмы
     renderMovie(movies[currentMovieIndex]); // Отображаем первый фильм
     startMovieRotation(); // Запускаем ротацию фильмов
   } catch (error) {
@@ -54,12 +25,13 @@ function createMovieElement(movie) {
 
   movieElement.innerHTML = `
         <h1 class="movie__title">${movie.nameRu}</h1>
-        <p class="movie__description">${
-          movie.description || "Описание отсутствует."
-        }</p>
+        <p class="movie__description">${movie.description || "Описание отсутствует."
+    }</p>
         <a href="#" class="movie__watch-btn">Смотреть</a>
     `;
-  movieContent.style.backgroundImage = `url(${movie.posterUrl})`; // Меняем фон
+  movieContent.style.backgroundImage = `
+    url(${movie.posterUrl})
+`;
   return movieElement;
 }
 //Ф-ия рендера фильмов
