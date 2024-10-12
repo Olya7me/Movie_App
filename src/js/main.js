@@ -1,6 +1,5 @@
 import { loadHeader } from "./modules/header";
 import { loadSidebar } from "./modules/sidebar";
-import { movies } from "./modules/movies";
 import { getPremieresMovies, initialEventListeners } from "./modules/premieres";
 import {
   getRecommendMovies,
@@ -8,9 +7,24 @@ import {
   loadHistoryFromLocalStorage,
 } from "./modules/search";
 
-import { getPopularMovies } from "./modules/popular";
+//удалить
 import { initSeriesModule } from "./modules/series";
-import { getMovies, toggleBtn } from "./modules/home";
+
+import { getMainMovies, toggleBtn } from "./modules/home";
+import {
+  getMovies,
+  popularMoviesTitle,
+  popularMoviesItems,
+  apiPopularMoviesUrl,
+  apiSeasonUrl,
+  seasonTitle,
+  seasonItems,
+  apiComicsUrl,
+  comicsTitle,
+  comicsItems,
+} from "./modules/popular";
+import { initMovieScrolling } from "./modules/slider";
+
 import { loadFooter } from "./modules/footer";
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -27,19 +41,14 @@ document.addEventListener("DOMContentLoaded", () => {
   } else {
     loadHeader();
     loadSidebar();
-    getMovies();
+    getMainMovies();
+    getMovies(apiPopularMoviesUrl, popularMoviesTitle, popularMoviesItems);
+    getMovies(apiSeasonUrl, seasonTitle, seasonItems);
+    getMovies(apiComicsUrl, comicsTitle, comicsItems);
     toggleBtn();
-    getPopularMovies();
-    initSeriesModule();
     getPremieresMovies();
     initialEventListeners();
+    initMovieScrolling();
     loadFooter();
   }
-});
-
-movies();
-
-window.addEventListener("resize", () => {
-  updateItemsPerView();
-  showNextItems();
 });
