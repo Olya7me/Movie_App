@@ -1,10 +1,12 @@
 import { loadHeader } from "./modules/header";
 import { loadSidebar } from "./modules/sidebar";
-
 import { movies } from "./modules/movies";
-
-
-import { getRecommendMovies, initEventListeners, loadHistoryFromLocalStorage, } from "./modules/search";
+import { getPremieresMovies, initialEventListeners } from "./modules/premieres";
+import {
+  getRecommendMovies,
+  initEventListeners,
+  loadHistoryFromLocalStorage,
+} from "./modules/search";
 
 import { getPopularMovies } from "./modules/popular";
 import { initSeriesModule } from "./modules/series";
@@ -29,18 +31,15 @@ document.addEventListener("DOMContentLoaded", () => {
     toggleBtn();
     getPopularMovies();
     initSeriesModule();
+    getPremieresMovies();
+    initialEventListeners();
     loadFooter();
   }
 });
 
-
-
-  window.addEventListener("resize", () => {
-    updateItemsPerView();
-    showNextItems();
-  });
-});
-
 movies();
 
-
+window.addEventListener("resize", () => {
+  updateItemsPerView();
+  showNextItems();
+});
