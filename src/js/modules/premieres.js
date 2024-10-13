@@ -1,3 +1,8 @@
+import { loadHeader } from "./header.js";
+import { toggleBtn } from "./home.js";
+import { loadSidebar } from "./sidebar.js";
+import { loadFooter } from "./footer.js";
+
 const apiPremieresUrl =
   "https://kinopoiskapiunofficial.tech/api/v2.2/films/premieres?year=2024&month=DECEMBER";
 const apiKey = "b6027775-465a-49ee-aecc-0731f7b27b31";
@@ -49,14 +54,16 @@ function createMovieElement(movie) {
   const movieElement = document.createElement("a");
   movieElement.classList.add("premieres__item");
 
+  movieElement.href = `/src/html/movie_card.html?movieId=${movie.kinopoiskId}`;
+
   const movieType =
     movie.type === "FILM"
       ? "Фильм"
       : movie.type === "TV_SERIES"
-      ? "Сериал"
-      : movie.type === "PREMIERE"
-      ? "Фильм"
-      : "Шоу";
+        ? "Сериал"
+        : movie.type === "PREMIERE"
+          ? "Фильм"
+          : "Шоу";
 
   movieElement.innerHTML = `
     <img src="${movie.posterUrlPreview}" alt="${movie.nameRu}">
@@ -67,8 +74,8 @@ function createMovieElement(movie) {
             <p class="premieres__item-type">${movieType}</p>
         </div>
         <p class="premieres__item-genre">${movie.genres
-          .map((genre) => genre.genre)
-          .join(", ")}</p>
+      .map((genre) => genre.genre)
+      .join(", ")}</p>
     </div>
   `;
   return movieElement;
@@ -116,3 +123,12 @@ export function initialEventListeners() {
     scrollToTopButton.style.display = isVisible ? "block" : "none";
   });
 }
+
+document.addEventListener("DOMContentLoaded", async () => {
+  loadHeader();
+  toggleBtn();
+  loadSidebar();
+  getPremieresMovies();
+  initialEventListeners();
+  loadFooter();
+});

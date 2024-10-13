@@ -86,3 +86,25 @@
         text-overflow: ellipsis;
     }
 }
+@mixin button-style(
+    $padding: 15px 25px,
+    $bg-color: $accent-color,
+    $border-radius: 27px,
+    $font-size: 20px,
+    $font-weight: 600
+) {
+    align-self: center;
+    padding: $padding;
+    background-color: $bg-color;
+    border-radius: $border-radius;
+    border: none;
+    font-size: $font-size;
+    font-weight: $font-weight;
+
+    @include hover-effect($search-hover-color);
+
+    &:active {
+        position: relative;
+        top: 1px;
+    }
+}

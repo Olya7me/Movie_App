@@ -40,6 +40,8 @@ function createUniversalMovieEl(movie) {
     const movieElement = document.createElement("a");
     movieElement.classList.add("movies-item");
 
+    movieElement.href = `/src/html/movie_card.html?movieId=${movie.kinopoiskId}`;
+
     const movieType = movie.type === 'FILM' ? 'Фильм' : (movie.type === 'TV_SERIES' ? 'Сериал' : 'Шоу');
 
     movieElement.innerHTML = `

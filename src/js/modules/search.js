@@ -1,4 +1,10 @@
 import { fetchFromApi } from './fetchApi'
+import { loadHeader } from "./header.js";
+import { toggleBtn } from "./home.js";
+import { loadSidebar } from "./sidebar.js";
+import { loadFooter } from "./footer.js";
+
+
 const apiSearchUrl = "https://kinopoiskapiunofficial.tech/api/v2.1/films/search-by-keyword?keyword=";
 const apiRecommendedUrl = "https://kinopoiskapiunofficial.tech/api/v2.2/films/collections?type=TOP_POPULAR_ALL&page=1";
 const apiGenresUrl = "https://kinopoiskapiunofficial.tech/api/v2.2/films/collections?type=TOP_POPULAR_ALL&page=";
@@ -178,6 +184,8 @@ function createMovieElement(movie) {
     const movieElement = document.createElement("a");
     movieElement.classList.add("recommend__item");
 
+    movieElement.href = `/src/html/movie_card.html?movieId=${movie.kinopoiskId}`;
+
     const movieType = movie.type === 'FILM' ? 'Фильм' : (movie.type === 'TV_SERIES' ? 'Сериал' : 'Шоу');
 
     movieElement.innerHTML = `
@@ -306,5 +314,14 @@ export function initEventListeners() {
             }
         });
     });
-
 }
+
+document.addEventListener("DOMContentLoaded", async () => {
+    loadHeader();
+    toggleBtn();
+    loadSidebar();
+    loadHistoryFromLocalStorage();
+    initEventListeners();
+    getRecommendMovies();
+    loadFooter();
+});
