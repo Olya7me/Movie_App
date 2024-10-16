@@ -1,6 +1,6 @@
-import { loadHeader } from "./modules/header";
+import { loadNavBar, toggleBtn } from "./modules/nav_bar";
 import { loadSidebar } from "./modules/sidebar";
-import { getMainMovies, toggleBtn } from "./modules/home";
+import { getRotateMovies } from "./modules/rotate_main_movie";
 import {
   getMovies,
   popularMoviesTitle,
@@ -12,29 +12,20 @@ import {
   apiComicsUrl,
   comicsTitle,
   comicsItems,
-} from "./modules/popular";
+} from "./modules/main_movies";
 import { initMovieScrolling } from "./modules/slider";
 import { loadFooter } from "./modules/footer";
 
 document.addEventListener("DOMContentLoaded", async () => {
-  const isSearchPage = document.querySelector(".search-page") !== null;
-
-  if (isSearchPage) {
-    loadHeader();
-    loadSidebar();
-    toggleBtn();
-    loadFooter();
-  } else {
-    loadHeader();
-    loadSidebar();
-    getMainMovies();
-    getMovies(apiPopularMoviesUrl, popularMoviesTitle, popularMoviesItems);
-    getMovies(apiSeasonUrl, seasonTitle, seasonItems);
-    getMovies(apiComicsUrl, comicsTitle, comicsItems);
-    toggleBtn();
-    initMovieScrolling();
-    loadFooter();
-  }
+  loadNavBar();
+  loadSidebar();
+  getRotateMovies();
+  getMovies(apiPopularMoviesUrl, popularMoviesTitle, popularMoviesItems);
+  getMovies(apiSeasonUrl, seasonTitle, seasonItems);
+  getMovies(apiComicsUrl, comicsTitle, comicsItems);
+  toggleBtn();
+  initMovieScrolling();
+  loadFooter();
 });
 
 

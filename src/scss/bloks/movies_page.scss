@@ -1,0 +1,211 @@
+@import "../vars.scss";
+@import "../mixins.scss";
+
+.movies-page {
+    padding: 80px 0;
+    height: 100vh;
+
+    &__content-container {
+        max-width: 1300px;
+        margin: 0 auto;
+        padding-left: 70px;
+        padding-right: 20px;
+    }
+
+    &__title {
+        margin-bottom: 40px;
+        font-weight: 500;
+        font-size: 3rem;
+    }
+
+    &__scroll-to-top {
+        @include scrollToTopButtonStyles($accent-color, $search-hover-color);
+    }
+
+    &__films {
+        display: flex;
+        flex-direction: column;
+        max-width: 100%;
+        flex-wrap: wrap;
+
+        &-title {
+            @include title;
+        }
+
+        &-items {
+            @include items-container;
+        }
+
+        &-item {
+            @include item;
+        }
+
+        &-item-title {
+            @include item-title;
+        }
+
+        &-item-info {
+            @include item-info;
+        }
+        &-item-description {
+            display: flex;
+            gap: 5px;
+        }
+
+        &-button {
+            @include button-style;
+        }
+
+        &-skeleton-container {
+            @include skeleton-container;
+        }
+
+        &-skeleton-item {
+            @include skeleton-item;
+        }
+    }
+}
+
+@media (max-width: 1250px) {
+    .movies-page {
+        &__films {
+            &-items {
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                grid-gap: 30px;
+                justify-content: center;
+                margin: 0 auto;
+            }
+
+            &-skeleton-container {
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                grid-gap: 30px;
+                justify-content: center;
+                margin: 0 auto;
+            }
+        }
+    }
+}
+
+@media (max-width: 1030px) {
+    .movies-page {
+        padding-right: 15px;
+        &__title {
+            font-size: 2rem;
+        }
+        &__films {
+            &-title {
+                font-size: 1.8rem;
+            }
+            &-items {
+                grid-template-columns: repeat(3, 1fr);
+                grid-column-gap: 30px;
+                justify-content: space-around;
+            }
+            &-skeleton-wrapper {
+                margin: 0 auto;
+            }
+            &-skeleton-container {
+                grid-template-columns: repeat(3, 1fr);
+                grid-column-gap: 30px;
+            }
+        }
+    }
+}
+
+@media (max-width: 799px) {
+    .movies-page {
+        &__films {
+            &-items {
+                grid-template-columns: repeat(2, 1fr);
+                grid-column-gap: 45px;
+                justify-content: space-between;
+            }
+            &-skeleton-container {
+                grid-template-columns: repeat(2, 1fr);
+                grid-column-gap: 45px;
+                justify-content: space-between;
+            }
+        }
+    }
+}
+
+@media (max-width: 689px) {
+    .movies-page {
+        padding-right: 15px;
+        &__title {
+            font-size: 1.8rem;
+        }
+        &__films {
+            &-title {
+                font-size: 1.5rem;
+            }
+            &-skeleton-container {
+                margin: 0 auto !important;
+            }
+        }
+    }
+}
+
+@media (max-width: 559px) {
+    .movies-page {
+        &__films {
+            &-items {
+                grid-column-gap: 20px;
+            }
+            &-skeleton-container {
+                grid-column-gap: 20px;
+            }
+        }
+    }
+}
+
+@media (max-width: 530px) {
+    .movies-page {
+        &__films {
+            &-items {
+                grid-template-columns: repeat(1, 1fr);
+                grid-column-gap: 20px;
+            }
+            &-item {
+                margin-bottom: 100px;
+                max-width: 300px;
+                height: 390px;
+            }
+            &-skeleton-container {
+                grid-template-columns: repeat(1, 1fr);
+                grid-column-gap: 20px;
+            }
+            &-skeleton-item {
+                width: 300px;
+                height: 390px;
+            }
+        }
+    }
+}
+
+@media (max-width: 390px) {
+    .movies-page {
+        &__content-container {
+            padding-left: 30px;
+            padding-right: 20px;
+        }
+    }
+}
+@media (max-width: 350px) {
+    .movies-page {
+        &__films {
+            &-item {
+                max-width: 270px;
+            }
+            &-skeleton-item {
+                width: 270px;
+            }
+            &-button {
+                padding: 10px 15px;
+                font-size: 16px;
+            }
+        }
+    }
+}

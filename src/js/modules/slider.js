@@ -5,7 +5,6 @@ const moviesLists = document.querySelectorAll(".movies-items");
 const visibleMoviesCount = 5;
 
 export function initMovieScrolling() {
-    // Количество фильмов, видимых на экране одновременно
     nextArrows.forEach((arrow, index) => {
         arrow.addEventListener("click", () => {
             const moviesList = moviesLists[index];
@@ -28,7 +27,6 @@ export function initMovieScrolling() {
             const movie = moviesList.querySelector(".movies-item");
             const movieWidth = movie.offsetWidth + parseInt(getComputedStyle(movie).marginRight);
 
-            // Прокрутка на 5 фильмов назад
             const newScrollLeft = Math.max(moviesList.scrollLeft - movieWidth * visibleMoviesCount, 0);
 
             moviesList.scrollTo({

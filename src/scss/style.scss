@@ -2,16 +2,14 @@
 @import "./template.scss";
 @import "./vars.scss";
 
-@import "./bloks/header.scss";
+@import "./bloks/nav_bar.scss";
 @import "./bloks/burger.scss";
-@import "./bloks/home.scss";
-@import "./bloks/aside.scss";
-@import "./bloks/search.scss";
-@import "./bloks/premieres.scss";
-@import "./bloks/movies.scss";
-@import "./bloks/series.scss";
-@import "./bloks/popular.scss";
+@import "./bloks/sidebar.scss";
+@import "./bloks/rotate_main_movie.scss";
+@import "./bloks/main_movies.scss";
 @import "./bloks/movie-card.scss";
+@import "./bloks/search_page.scss";
+@import "./bloks/premieres_page.scss";
+@import "./bloks/movies_page.scss";
+@import "./bloks/series_page.scss";
 @import "./bloks/footer.scss";
-
-//Стили пишем в папке bloks!Этот основной файл не трогаем

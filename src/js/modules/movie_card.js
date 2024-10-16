@@ -1,5 +1,4 @@
-import { loadHeader } from "./header.js";
-import { toggleBtn } from "./home.js";
+import { loadNavBar, toggleBtn } from "./nav_bar.js";
 import { loadSidebar } from "./sidebar.js";
 import { loadFooter } from "./footer.js";
 
@@ -41,7 +40,7 @@ async function fetchFromApi(url) {
         return await response.json();
     } catch (error) {
         movieTitle.textContent = error.message;  // Выводим ошибку в заголовок
-        throw error;  // Пробрасываем ошибку дальше
+        throw error;
     }
 }
 
@@ -116,7 +115,7 @@ async function loadMovieData(movieId) {
 
 // Вызов функций
 document.addEventListener("DOMContentLoaded", async () => {
-    loadHeader();
+    loadNavBar();
     toggleBtn();
     loadSidebar();
 

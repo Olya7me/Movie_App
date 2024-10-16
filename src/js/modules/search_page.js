@@ -1,6 +1,5 @@
-import { fetchFromApi } from './fetchApi'
-import { loadHeader } from "./header.js";
-import { toggleBtn } from "./home.js";
+import { fetchFromApi } from './fetchApi.js'
+import { loadNavBar, toggleBtn } from "./nav_bar.js";
 import { loadSidebar } from "./sidebar.js";
 import { loadFooter } from "./footer.js";
 
@@ -106,7 +105,7 @@ export async function getRecommendMovies() {
         const data = await fetchFromApi(apiRecommendedUrl, apiKey, recommendTitle);
         allMovies = data;
         recommendItems.innerHTML = '';
-        renderMovies(allMovies);
+        renderMovies(allMovies, recommendItems, recommendButton, scrollToTopButton, createMovieElement);
         recommendTitle.textContent = "Рекомендуем";
     } catch (error) {
         recommendTitle.innerHTML = `Кажется, что что-то пошло не так: ${error.message}`;
@@ -158,7 +157,7 @@ async function searchByGenre(genre, genreText) {
             recommendTitle.textContent = `${genreText}`;
         }
 
-        renderMovies(allMovies);
+        renderMovies(allMovies, recommendItems, recommendButton, scrollToTopButton, createMovieElement);
 
     } catch (error) {
         recommendTitle.innerHTML = `Кажется, что что-то пошло не так: ${error.message}`;
@@ -166,17 +165,17 @@ async function searchByGenre(genre, genreText) {
 }
 
 //ф-ия рендера карточек
-export function renderMovies(movies) {
+export function renderMovies(movies, container, button, scrollButton, createElementFunc) {
     const moviesToShow = movies.slice(currentIndex, currentIndex + moviesPerPage);
 
     moviesToShow.forEach(movie => {
-        const movieElement = createMovieElement(movie);
-        recommendItems.appendChild(movieElement);
+        const movieElement = createElementFunc(movie);
+        container.appendChild(movieElement);
     });
 
     currentIndex += moviesPerPage;
 
-    toggleButtonVisibility(currentIndex < movies.length);
+    toggleButtonVisibility(currentIndex < movies.length, button, scrollButton);
 }
 
 //Ф-ия создания карточки фильма
@@ -203,14 +202,14 @@ function createMovieElement(movie) {
 }
 
 //Ф-ия показа кнопок
-function toggleButtonVisibility(isVisible) {
-    recommendButton.style.display = isVisible ? 'block' : 'none';
-    scrollToTopButton.style.display = isVisible ? 'none' : 'block';
+export function toggleButtonVisibility(isVisible, button, scrollButton) {
+    button.style.display = isVisible ? 'block' : 'none';
+    scrollButton.style.display = isVisible ? 'none' : 'block';
 }
 
 //Ф-ия  инициализации обработчиков
 export function initEventListeners() {
-    recommendButton.addEventListener("click", () => renderMovies(allMovies));
+    recommendButton.addEventListener("click", () => renderMovies(allMovies, recommendItems, recommendButton, scrollToTopButton, createMovieElement));
 
     scrollToTopButton.addEventListener("click", () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -317,7 +316,7 @@ export function initEventListeners() {
 }
 
 document.addEventListener("DOMContentLoaded", async () => {
-    loadHeader();
+    loadNavBar();
     toggleBtn();
     loadSidebar();
     loadHistoryFromLocalStorage();
