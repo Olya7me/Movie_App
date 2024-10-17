@@ -1,11 +1,27 @@
-//здесь создавайте миксины
+@mixin content-container(
+    $max-width: 1300px,
+    $padding-left: 70px,
+    $padding-right: 20px
+) {
+    max-width: $max-width;
+    margin: 0 auto;
+    padding-left: $padding-left;
+    padding-right: $padding-right;
+}
+@mixin navHoverEffect() {
+    &:hover {
+        fill: $accent-color;
+        filter: drop-shadow(0 0 10px rgba(255, 99, 71, 1))
+            drop-shadow(0 0 15px rgba(255, 99, 71, 0.7));
+        transition: fill 0.2s ease-in-out;
+    }
+}
 @mixin hover-effect($color) {
     &:hover {
         background-color: $color;
         transition: background-color $transition-time ease-in;
     }
 }
-
 @mixin flex-center($direction: row) {
     display: flex;
     justify-content: center;
@@ -13,71 +29,67 @@
     flex-direction: $direction;
 }
 @mixin title(
-    $font-size: 2rem,
     $font-weight: 400,
     $letter-spacing: 0.2px,
+    $font-size: 2rem,
+
     $margin-bottom: 40px
 ) {
     font-size: $font-size;
     font-weight: $font-weight;
     letter-spacing: $letter-spacing;
+
     margin-bottom: $margin-bottom;
 }
 @mixin hover-effect-item {
     &:hover {
-        box-shadow: 0 0 10px 2px $accent-color; // Используем переменную акцентного цвета
+        box-shadow: 0 0 10px 2px $accent-color;
         transform: scale(1.02);
     }
 }
-
-// Миксин для универсального контейнера с элементами
 @mixin items-container {
     display: flex;
     flex-wrap: wrap;
-    gap: 30px; // Жестко заданный промежуток
-    margin-bottom: 40px; // Жестко заданный нижний отступ
+    gap: 30px;
+    margin-bottom: 40px;
 }
-
-// Миксин для универсального элемента списка
 @mixin item {
-    margin-bottom: 120px; // Жестко заданный нижний отступ для элемента
-    max-width: 210px; // Жестко заданная ширина элемента
-    height: 300px; // Жестко заданная высота элемента
+    margin-bottom: 120px;
+    max-width: 210px;
+    height: 300px;
 
     img {
         width: 100%;
         height: 100%;
-        border-radius: 20px; // Жестко заданный радиус скругления
+        border-radius: 20px;
         object-fit: cover;
         margin-bottom: 10px;
         cursor: pointer;
         transition: transform 0.8s ease-in-out, box-shadow 0.8s ease-in-out;
         z-index: 4;
 
-        @include hover-effect-item; // Применение эффекта наведения
+        @include hover-effect-item;
     }
 
     &:hover {
-        color: $accent-color; // Используем акцентный цвет
+        color: $accent-color;
         transition: 0.2s ease-in;
     }
 }
-
-// Миксин для заголовка элемента
 @mixin item-title {
     display: block;
-    font-size: 1.2rem; // Жестко заданный размер шрифта
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+
     font-weight: 500;
     letter-spacing: 0.1px;
-    margin-bottom: 5px;
     cursor: pointer;
 }
-
-// Миксин для информации о фильме
 @mixin item-info {
     display: flex;
     flex-direction: column;
     gap: 5px;
+
     color: rgba(128, 128, 128, 0.779);
 
     p {
@@ -90,11 +102,13 @@
     $padding: 15px 25px,
     $bg-color: $accent-color,
     $border-radius: 27px,
+
     $font-size: 20px,
     $font-weight: 600
 ) {
     align-self: center;
     padding: $padding;
+
     background-color: $bg-color;
     border-radius: $border-radius;
     border: none;
@@ -106,5 +120,56 @@
     &:active {
         position: relative;
         top: 1px;
+    }
+}
+@mixin scrollToTopButtonStyles($accent-color, $hover-color) {
+    display: none;
+    position: fixed;
+    bottom: 30px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+
+    border-radius: 50%;
+    background-color: $accent-color;
+    border: none;
+
+    @include flex-center();
+    @include hover-effect($hover-color);
+
+    svg {
+        width: 24px;
+        height: 24px;
+
+        fill: currentColor;
+        transform: rotate(-90deg);
+    }
+}
+@mixin skeleton-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-bottom: 40px;
+
+    width: 100%;
+}
+@mixin skeleton-item {
+    height: 300px;
+    width: 210px;
+
+    background-color: $skeleton-item-bg-color;
+    border-radius: 20px;
+    animation: pulse 2s infinite ease-in-out;
+
+    @keyframes pulse {
+        0% {
+            background-color: rgba(100, 100, 100, 0.178);
+        }
+        50% {
+            background-color: rgba(100, 100, 100, 0.16);
+        }
+        100% {
+            background-color: rgba(100, 100, 100, 0.038);
+        }
     }
 }

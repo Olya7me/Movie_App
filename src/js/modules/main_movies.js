@@ -17,7 +17,7 @@ export const comicsItems = document.querySelector(".comics-movies__items ");
 const apiKey = "a72994a0-2897-409b-943f-b58b813ec6ce";
 let allMovies = [];
 
-
+//Ф-ия получения фильмов
 export async function getMovies(url, title, container) {
     try {
         showSkeleton(container);
@@ -28,6 +28,8 @@ export async function getMovies(url, title, container) {
         title.innerHTML = `Кажется, что что-то пошло не так: ${error.message}`;
     }
 }
+
+//Ф-ия рендеринга фильмов
 function renderMovies(movies, container) {
     container.innerHTML = '';
 
@@ -36,6 +38,7 @@ function renderMovies(movies, container) {
         container.appendChild(movieElement);
     });
 }
+//Ф-ия создания элемента фильма
 function createUniversalMovieEl(movie) {
     const movieElement = document.createElement("a");
     movieElement.classList.add("movies-item");

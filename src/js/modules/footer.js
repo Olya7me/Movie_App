@@ -3,13 +3,13 @@ export function loadFooter() {
   <nav class="footer__nav">
         <ul class="footer__nav-list">
           <li class="footer__nav-item">
-            <a href="#" class="footer__nav-link">Главная</a>
+            <a href=""../../../index.html"" class="footer__nav-link">Главная</a>
           </li>
           <li class="footer__nav-item">
-            <a href="#" class="footer__nav-link">Фильмы</a>
+            <a href="../../src/html/movies_page.html" class="footer__nav-link">Фильмы</a>
           </li>
           <li class="footer__nav-item">
-            <a href="#" class="footer__nav-link">Сериалы</a>
+            <a href="../../src/html/series_page.html" class="footer__nav-link">Сериалы</a>
           </li>
           <li class="footer__nav-item">
             <a href="#" class="footer__nav-link">Популярные</a>
@@ -17,7 +17,7 @@ export function loadFooter() {
         </ul>
       </nav>
       <div class="footer__rights">
-        Все права защищены © 2024
+        Все права защищены Милой и Олей © 2024
       </div>
       
     `;
