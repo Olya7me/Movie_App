@@ -1,8 +1,8 @@
 @import "./vars.scss";
+
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Sen:wght@400..800&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Sixtyfour+Convergence&display=swap");
-// здесь шрифты и сброс настроек
 
 *,
 *::before,
@@ -16,7 +16,9 @@ html {
     scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
     scroll-behavior: smooth;
 }
-
+.none {
+    display: none;
+}
 html:hover {
     scrollbar-color: rgba(255, 255, 255, 0.4) transparent;
 }
@@ -100,8 +102,6 @@ svg {
     max-width: 100%;
     height: auto;
 }
-
-//Form
 
 input,
 textarea,

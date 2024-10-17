@@ -3,7 +3,7 @@ import { loadSidebar } from "./sidebar.js";
 import { loadFooter } from "./footer.js";
 
 
-// Константы и переменные
+
 const apiKey = "a72994a0-2897-409b-943f-b58b813ec6ce";
 const apiUrl = `https://kinopoiskapiunofficial.tech/api/v2.2/films/`;
 const movieId = new URLSearchParams(window.location.search).get('movieId');
@@ -12,7 +12,8 @@ const trailerContainer = document.querySelector(".movie-card__container-for-trai
 const movieTitle = document.querySelector(".movie-card__title");
 const loadingIndicator = createLoadingIndicator();
 
-// Вспомогательные функции
+
+//Ф-ия создания индикатора загрузки
 function createLoadingIndicator() {
     const indicator = document.createElement('div');
     indicator.classList.add('loading-indicator');
@@ -20,10 +21,11 @@ function createLoadingIndicator() {
     return indicator;
 }
 
+//Вспомогат. ф-ия
 function setInnerHTML(selector, html) {
     document.querySelector(selector).innerHTML = html;
 }
-
+//Фу-ия запроса Апи
 async function fetchFromApi(url) {
     try {
         const response = await fetch(url, {
@@ -39,7 +41,7 @@ async function fetchFromApi(url) {
 
         return await response.json();
     } catch (error) {
-        movieTitle.textContent = error.message;  // Выводим ошибку в заголовок
+        movieTitle.textContent = error.message;
         throw error;
     }
 }
@@ -62,7 +64,7 @@ async function renderMovieDetails(movieId) {
                     <h2 class="movie-card__info-title">Информация</h2>
                     <div class="movie-card__info-wrapper">
                         <div class="movie-card__info-country"><p class="gray">Страна</p><p>${countries}</p></div>
-                        <div class="movie-card__info-rating"><p class="gray">Рейтинг</p><p>${movie.ratingKinopoisk || 'Рейтинг отсутствует'}</p></div>
+                        <div class="movie-card__info-rating"><p class="gray">Рейтинг</p><p>${movie.ratingKinopoisk || movie.ratingImdb || 'Рейтинг отсутствует'}</p></div>
                         <div class="movie-card__info-genre"><p class="gray">Жанр</p><p>${genres}</p></div>
                     </div>
                 </div>
@@ -79,8 +81,8 @@ async function fetchMovieVideos(movieId) {
         const videos = await fetchFromApi(`${apiUrl}${movieId}/videos`);
         return videos.items.find(v => v.site === 'YOUTUBE');
     } catch (error) {
-        movieTitle.textContent = error.message;  // Выводим ошибку в заголовок
-        throw error;  // Пробрасываем ошибку дальше
+        movieTitle.textContent = error.message;
+        throw error;
     }
 }
 

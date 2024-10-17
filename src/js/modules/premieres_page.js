@@ -32,21 +32,13 @@ function createMovieElement(movie) {
   movieElement.classList.add("premieres__item");
   movieElement.href = `/src/html/movie_card.html?movieId=${movie.kinopoiskId}`;
 
-  const movieType = movie.type === "FILM"
-    ? "Фильм"
-    : movie.type === "TV_SERIES"
-      ? "Сериал"
-      : movie.type === "PREMIERE"
-        ? "Фильм"
-        : "Шоу";
-
   movieElement.innerHTML = `
     <img src="${movie.posterUrlPreview}" alt="${movie.nameRu}">
     <h3 class="premieres__item-title">${movie.nameRu}</h3>
     <div class="premieres__item-info">
       <div class="premieres__item-description">
-        <p class="premieres__item-year">${movie.year},</p>
-        <p class="premieres__item-type">${movieType}</p>
+        <p class="premieres__item-year"></p>
+        <p class="premieres__item-type">${movie.premiereRu}</p>
       </div>
       <p class="premieres__item-genre">${movie.genres.map(genre => genre.genre).join(", ")}</p>
     </div>
@@ -61,6 +53,12 @@ export async function getPremieresMovies() {
     const data = await fetchFromApi(apiPremieresUrl, apiKey, premieresTitle);
     premieresItems.innerHTML = "";
     allMovies = data;
+    console.log(allMovies);
+
+    const movies = data.items || data;
+
+    allMovies = movies.filter(movie => movie.year === 2024 || movie.year === 2025);
+
     renderMovies(allMovies, premieresItems, premieresButton, scrollToTopButton, createMovieElement);
     premieresTitle.textContent = "Премьеры";
   } catch (error) {

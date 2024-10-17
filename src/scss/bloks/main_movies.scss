@@ -1,81 +1,141 @@
-@import "../vars.scss";
-@import "../mixins.scss";
+.container {
+    .movies-title {
+        text-transform: uppercase;
+        @include title;
+        font-weight: 500;
+        span {
+            text-transform: lowercase;
+        }
+    }
+    .items-wrapper {
+        position: relative;
 
-.movies-title {
-    text-transform: uppercase;
-    @include title;
-    span {
-        text-transform: lowercase;
+        .movies-items {
+            @include items-container;
+            flex-wrap: nowrap;
+            z-index: 3;
+            padding-top: 20px;
+            padding-left: 10px;
+            overflow: hidden;
+            scroll-behavior: smooth;
+        }
+
+        .movies-item {
+            @include item;
+            flex-shrink: 0;
+            width: 100%;
+        }
+        .item-title {
+            @include item-title;
+        }
+        .item-info {
+            @include item-info;
+        }
+        .item-description {
+            display: flex;
+            gap: 5px;
+        }
+    }
+
+    .next-arrow,
+    .prev-arrow {
+        width: 50px;
+        position: absolute;
+        top: 40%;
+        transform: translateY(-50%);
+        fill: currentColor;
+        opacity: 0.7;
+        cursor: pointer;
+    }
+
+    .next-arrow {
+        right: 10px;
+    }
+
+    .prev-arrow {
+        left: 10px;
+    }
+    .skeleton-container {
+        display: flex;
+        flex-direction: row;
+        gap: 30px;
+        margin-bottom: 40px;
+        width: 100%;
+    }
+
+    .skeleton-item {
+        background-color: rgba(147, 146, 146, 0.317);
+        border-radius: 20px;
+        height: 300px;
+        width: 210px;
+        animation: pulse 2s infinite ease-in-out;
+    }
+
+    @keyframes pulse {
+        0% {
+            background-color: rgba(100, 100, 100, 0.178);
+        }
+        50% {
+            background-color: rgba(100, 100, 100, 0.16);
+        }
+        100% {
+            background-color: rgba(100, 100, 100, 0.038);
+        }
     }
 }
-.items-wrapper {
-    position: relative;
-}
-.movies-items {
-    @include items-container;
-    flex-wrap: nowrap;
-    z-index: 3;
-    padding-top: 20px;
-    padding-left: 10px;
-    overflow: hidden;
-    scroll-behavior: smooth;
-}
-.movies-item {
-    @include item;
-    flex-shrink: 0;
-}
-.item-title {
-    @include item-title;
-}
-.item-info {
-    @include item-info;
-}
-.item-description {
-    display: flex;
-    gap: 5px;
-}
-.next-arrow {
-    position: absolute;
-    top: 40%;
-    right: 10px;
-    transform: translateY(-50%);
-    fill: currentColor;
-    opacity: 0.5;
-    cursor: pointer;
-}
-.prev-arrow {
-    position: absolute;
-    top: 40%;
-    left: 10px;
-    transform: translateY(-50%);
-    fill: currentColor;
-    opacity: 0.5;
-    cursor: pointer;
-}
-.skeleton-container {
-    display: flex;
-    flex-direction: row;
-    gap: 30px;
-    margin-bottom: 40px;
-    width: 100%;
-}
 
-.skeleton-item {
-    background-color: rgba(147, 146, 146, 0.317);
-    border-radius: 20px;
-    height: 300px;
-    width: 210px;
-    animation: pulse 2s infinite ease-in-out;
+@media (max-width: 1030px) {
+    .items-wrapper {
+        .movies-items {
+            overflow-x: scroll;
+            -webkit-overflow-scrolling: touch;
+            scroll-behavior: smooth;
+            .movies-item {
+                flex: 0 0 calc(100% / 4);
+            }
+        }
+    }
+    .next-arrow,
+    .prev-arrow {
+        display: none;
+    }
 }
-
-@keyframes pulse {
-    0% {
-        background-color: rgba(100, 100, 100, 0.178);
+@media (max-width: 940px) {
+    .container {
+        padding-left: 20px !important;
+        .movies-title {
+            font-size: 1.5rem;
+        }
+        .items-wrapper {
+            .movies-items {
+                .movies-item {
+                    flex: 0 0 calc(100% / 3);
+                }
+            }
+        }
     }
-    50% {
-        background-color: rgba(100, 100, 100, 0.16);
+}
+@media (max-width: 710px) {
+    .container {
+        .items-wrapper {
+            .movies-items {
+                .movies-item {
+                    flex: 0 0 calc(100% / 2);
+                }
+            }
+        }
     }
-    100% {
-        background-color: rgba(100, 100, 100, 0.038);
+}
+@media (max-width: 490px) {
+    .container {
+        .movies-title {
+            font-size: 1.2rem;
+            padding-right: 10px;
+        }
+        .items-wrapper {
+            .movies-item {
+                flex: 0 0 100%;
+            }
+        }
     }
 }

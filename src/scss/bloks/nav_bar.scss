@@ -2,16 +2,17 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: $primary-color;
     height: 50px;
     padding: 0 20px;
 
+    background-color: $primary-color;
     color: $white;
 
     &__logo {
+        padding-left: 45px;
+
         font-family: "Sixtyfour Convergence", sans-serif;
         font-size: 18px;
-        padding-left: 45px;
     }
 
     &__nav {
@@ -21,6 +22,7 @@
         }
         &-item {
             padding-left: 60px;
+
             text-transform: uppercase;
             letter-spacing: 0.9px;
             @include navHoverEffect();
@@ -40,6 +42,7 @@
         &-icon {
             width: 25px;
             height: 25px;
+
             fill: $white;
             transition: fill 0.2s ease-in-out;
         }
@@ -47,12 +50,14 @@
     &__burger {
         display: none;
         flex-direction: column;
+
         cursor: pointer;
         span {
             width: 25px;
             height: 3px;
-            background-color: $white;
             margin: 3px 0;
+
+            background-color: $white;
             transition: all 0.3s ease;
         }
 
@@ -79,15 +84,16 @@
         align-items: center;
 
         input[type="checkbox"] {
+            position: relative;
+            width: 20px;
+            height: 20px;
+
             appearance: none;
             -webkit-appearance: none;
             -moz-appearance: none;
             background-color: transparent;
             border: 2px solid $white;
-            width: 20px;
-            height: 20px;
             cursor: pointer;
-            position: relative;
             transition: background-color 0.3s ease;
 
             &:before {
@@ -97,6 +103,7 @@
                 left: 50%;
                 width: 12px;
                 height: 12px;
+
                 background-color: transparent;
                 border-radius: 50%;
                 transform: translate(-50%, -50%);
@@ -117,6 +124,7 @@
 
     &__toggle-label {
         padding-left: 10px;
+
         color: $white;
         letter-spacing: 0.9px;
         font-weight: bold;
@@ -124,29 +132,7 @@
         text-transform: uppercase;
     }
 
-    // Планшетная версия (от 768px до 1023px)
-    @media (max-width: 1023px) and (min-width: 768px) {
-        &__logo {
-            font-size: 22px;
-            margin-left: 30px;
-        }
-
-        &__nav-list {
-            justify-content: flex-end;
-            margin-right: 25px;
-            font-size: 16px;
-        }
-
-        &__toggle {
-            margin-left: 10px;
-        }
-        &__toggle-label {
-            font-size: 12px;
-        }
-    }
-
-    // Мобильная версия (до 767px)
-    @media (max-width: 767px) {
+    @media (max-width: 1030px) {
         &__nav-list {
             display: none;
             flex-direction: column;
@@ -167,6 +153,7 @@
         &__logo {
             position: absolute;
             left: 43%;
+
             transform: translateX(-50%);
         }
 

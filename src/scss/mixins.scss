@@ -1,5 +1,13 @@
-@import "./vars.scss";
-
+@mixin content-container(
+    $max-width: 1300px,
+    $padding-left: 70px,
+    $padding-right: 20px
+) {
+    max-width: $max-width;
+    margin: 0 auto;
+    padding-left: $padding-left;
+    padding-right: $padding-right;
+}
 @mixin navHoverEffect() {
     &:hover {
         fill: $accent-color;
@@ -8,7 +16,6 @@
         transition: fill 0.2s ease-in-out;
     }
 }
-
 @mixin hover-effect($color) {
     &:hover {
         background-color: $color;
@@ -22,14 +29,16 @@
     flex-direction: $direction;
 }
 @mixin title(
-    $font-size: 2rem,
     $font-weight: 400,
     $letter-spacing: 0.2px,
+    $font-size: 2rem,
+
     $margin-bottom: 40px
 ) {
     font-size: $font-size;
     font-weight: $font-weight;
     letter-spacing: $letter-spacing;
+
     margin-bottom: $margin-bottom;
 }
 @mixin hover-effect-item {
@@ -70,15 +79,17 @@
 @mixin item-title {
     display: block;
     font-size: 1.2rem;
+    margin-bottom: 5px;
+
     font-weight: 500;
     letter-spacing: 0.1px;
-    margin-bottom: 5px;
     cursor: pointer;
 }
 @mixin item-info {
     display: flex;
     flex-direction: column;
     gap: 5px;
+
     color: rgba(128, 128, 128, 0.779);
 
     p {
@@ -91,11 +102,13 @@
     $padding: 15px 25px,
     $bg-color: $accent-color,
     $border-radius: 27px,
+
     $font-size: 20px,
     $font-weight: 600
 ) {
     align-self: center;
     padding: $padding;
+
     background-color: $bg-color;
     border-radius: $border-radius;
     border: none;
@@ -116,6 +129,7 @@
     right: 20px;
     width: 50px;
     height: 50px;
+
     border-radius: 50%;
     background-color: $accent-color;
     border: none;
@@ -126,6 +140,7 @@
     svg {
         width: 24px;
         height: 24px;
+
         fill: currentColor;
         transform: rotate(-90deg);
     }
@@ -135,13 +150,15 @@
     flex-wrap: wrap;
     gap: 30px;
     margin-bottom: 40px;
+
     width: 100%;
 }
 @mixin skeleton-item {
-    background-color: $skeleton-item-bg-color;
-    border-radius: 20px;
     height: 300px;
     width: 210px;
+
+    background-color: $skeleton-item-bg-color;
+    border-radius: 20px;
     animation: pulse 2s infinite ease-in-out;
 
     @keyframes pulse {

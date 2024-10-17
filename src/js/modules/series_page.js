@@ -15,6 +15,8 @@ let allSeries = [];
 let currentIndex = 0;
 let totalPagesLoaded = 0;
 
+
+//Ф-ия запроса сериалов
 async function getAllSeries() {
     try {
         showSkeleton();

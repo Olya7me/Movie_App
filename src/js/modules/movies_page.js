@@ -17,6 +17,8 @@ let currentIndex = 0;
 const moviesPerPage = 10;
 let totalPagesLoaded = 0;
 
+
+//Ф-ия получения фильмов
 async function getAllMovies() {
     try {
         showSkeleton();
