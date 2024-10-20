@@ -273,13 +273,15 @@
                 grid-column-gap: 30px;
                 justify-content: space-around;
             }
-            &__skeleton-wrapper {
-                margin: 0 auto;
-            }
             &__skeleton-container {
+                margin-right: -180px !important;
                 grid-template-columns: repeat(3, 1fr);
                 grid-column-gap: 30px;
+                justify-content: center;
             }
+        }
+        &__scroll-to-top {
+            display: none !important;
         }
     }
 }
@@ -295,7 +297,7 @@
             grid-column-gap: 15px;
 
             &__text {
-                padding: 5px;
+                padding: 8px;
                 font-size: 16px;
             }
         }
@@ -309,6 +311,7 @@
                 grid-template-columns: repeat(2, 1fr);
                 grid-column-gap: 45px;
                 justify-content: space-between;
+                margin-right: -90.5px !important;
             }
         }
     }
@@ -353,9 +356,6 @@
             &__items {
                 grid-column-gap: 20px;
             }
-            &__skeleton-container {
-                grid-column-gap: 20px;
-            }
         }
     }
 }
@@ -377,8 +377,8 @@
                 grid-column-gap: 20px;
             }
             &__skeleton-item {
-                margin-bottom: 100px;
-                max-width: 300px;
+                margin-bottom: 60px;
+                width: 300px;
                 height: 390px;
             }
         }

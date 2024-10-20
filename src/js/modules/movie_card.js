@@ -2,8 +2,6 @@ import { loadNavBar, toggleBtn } from "./nav_bar.js";
 import { loadSidebar } from "./sidebar.js";
 import { loadFooter } from "./footer.js";
 
-
-
 const apiKey = "a72994a0-2897-409b-943f-b58b813ec6ce";
 const apiUrl = `https://kinopoiskapiunofficial.tech/api/v2.2/films/`;
 const movieId = new URLSearchParams(window.location.search).get('movieId');
@@ -48,6 +46,7 @@ async function fetchFromApi(url) {
 
 // Функция для рендеринга деталей фильма
 async function renderMovieDetails(movieId) {
+    movieContent.appendChild(loadingIndicator);
     const movie = await fetchFromApi(`${apiUrl}${movieId}`);
     const countries = movie.countries?.map(c => c.country).join(', ') || 'Страна не указана';
     const genres = movie.genres?.map(g => g.genre).join(', ') || 'Жанры не указаны';
