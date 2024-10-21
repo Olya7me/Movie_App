@@ -1,6 +1,6 @@
 export function loadNavBar() {
   const headerHTML = `
-    <div class="header__logo">MovieSearch
+      <div class="header__logo">MovieSearch
     </div>
     <nav class="header__nav">
       <ul class="header__nav-list">
@@ -14,7 +14,7 @@ export function loadNavBar() {
           <a href="../../src/html/series_page.html" class="header__nav-link">Сериалы</a>
         </li>
         <li class="header__nav-item">
-          <a href="#" class="header__nav-link">Популярные</a>
+          <a href="#popular-movies" class="header__nav-link">Популярные</a>
         </li>
         <li class="header__nav-item item">
           <a href="/src/html/search.html" class="header__nav-link header__search" id="search">
@@ -39,10 +39,9 @@ export function loadNavBar() {
 
   //Переключение на бургер
 
-  document.querySelector(".header").innerHTML = headerHTML;
-
   const burger = document.querySelector(".header__burger");
   const nav = document.querySelector(".header__nav-list");
+  /*const navLinks = document.querySelectorAll(".header__nav-link");*/
 
   burger.addEventListener("click", () => {
     burger.classList.toggle("active");
@@ -58,6 +57,22 @@ export function loadNavBar() {
       nav.classList.remove("open");
     }
   });
+  //для бургер меню
+  /*const navLinks = document.querySelectorAll(".header__nav-link");
+
+  navLinks.forEach((link) => {
+    link.addEventListener("click", function () {
+      navLinks.forEach((link) => {
+        if (link.classList.contains("active")) {
+          link.classList.remove("active");
+        }
+      });
+      this.classList.add("active");
+
+      burger.classList.remove("active");
+      nav.classList.remove("open");
+    });
+  });*/
 }
 //Кнопка ч/б темы
 export function toggleBtn() {

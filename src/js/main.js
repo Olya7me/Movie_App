@@ -27,8 +27,3 @@ document.addEventListener("DOMContentLoaded", async () => {
   initMovieScrolling();
   loadFooter();
 });
-
-
-
-
-

@@ -1,37 +1,50 @@
 .footer {
-    text-align: center;
-    padding: 10px;
+  text-align: center;
+  padding: 10px;
 
-    background-color: $primary-color;
+  background-color: $primary-color;
 
+  &__nav {
+    margin-bottom: 10px;
+
+    &-list {
+      display: flex;
+      justify-content: center;
+    }
+
+    &-item {
+      padding-left: 50px;
+      &:first-child {
+        padding-left: 0;
+      }
+    }
+
+    &-link {
+      color: $white;
+      font-size: 14px;
+      text-transform: uppercase;
+      text-decoration: none;
+    }
+    &-link:hover {
+      color: $accent-color;
+      @include navHoverEffect;
+    }
+  }
+  &__rights {
+    color: $gray-color;
+    font-size: 12px;
+  }
+  @media (max-width: 768px) {
     &__nav {
-        margin-bottom: 10px;
-
-        &-list {
-            display: flex;
-            justify-content: center;
-        }
-
-        &-item {
-            padding-left: 50px;
-            &:first-child {
-                padding-left: 0;
-            }
-        }
-
-        &-link {
-            color: $white;
-            font-size: 14px;
-            text-transform: uppercase;
-            text-decoration: none;
-        }
-        &-link:hover {
-            color: $accent-color;
-            @include navHoverEffect;
-        }
+      &-list {
+        display: none;
+      }
     }
     &__rights {
-        color: $gray-color;
-        font-size: 12px;
+      display: flex;
+      justify-content: center;
+      font-size: 10px;
+      padding-bottom: 15px;
     }
+  }
 }
