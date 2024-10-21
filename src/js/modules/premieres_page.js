@@ -1,21 +1,23 @@
 import { loadNavBar, toggleBtn } from "./nav_bar.js";
 import { loadSidebar } from "./sidebar.js";
 import { loadFooter } from "./footer.js";
-import { fetchFromApi } from './fetchApi.js';
+import { fetchFromApi } from "./fetchApi.js";
 import { renderMovies } from "./search_page.js";
 
-const apiPremieresUrl = "https://kinopoiskapiunofficial.tech/api/v2.2/films/premieres?year=2024&month=DECEMBER";
+const apiPremieresUrl =
+  "https://kinopoiskapiunofficial.tech/api/v2.2/films/premieres?year=2024&month=DECEMBER";
 const apiKey = "b6027775-465a-49ee-aecc-0731f7b27b31";
 const premieresItems = document.querySelector(".premieres__items");
 const premieresTitle = document.querySelector(".premieres h2.premieres__title");
 const premieresButton = document.querySelector(".premieres__button");
-const scrollToTopButton = document.querySelector(".premieres-page__scroll-to-top");
+const scrollToTopButton = document.querySelector(
+  ".premieres-page__scroll-to-top"
+);
 
 let allMovies = [];
 let currentIndex = 0;
 const moviesPerPage = 10;
 
-// Функция отображения скелетона загрузки
 function showSkeleton() {
   premieresItems.innerHTML = `
     <div class="premieres__skeleton-wrapper">
@@ -26,7 +28,6 @@ function showSkeleton() {
   `;
 }
 
-// Функция для создания элемента фильма
 function createMovieElement(movie) {
   const movieElement = document.createElement("a");
   movieElement.classList.add("premieres__item");
@@ -40,13 +41,14 @@ function createMovieElement(movie) {
         <p class="premieres__item-year"></p>
         <p class="premieres__item-type">${movie.premiereRu}</p>
       </div>
-      <p class="premieres__item-genre">${movie.genres.map(genre => genre.genre).join(", ")}</p>
+      <p class="premieres__item-genre">${movie.genres
+        .map((genre) => genre.genre)
+        .join(", ")}</p>
     </div>
   `;
   return movieElement;
 }
 
-// Получение и отображение премьер
 export async function getPremieresMovies() {
   try {
     showSkeleton();
@@ -57,19 +59,32 @@ export async function getPremieresMovies() {
 
     const movies = data.items || data;
 
-    allMovies = movies.filter(movie => movie.year === 2024 || movie.year === 2025);
+    allMovies = movies.filter(
+      (movie) => movie.year === 2024 || movie.year === 2025
+    );
 
-    renderMovies(allMovies, premieresItems, premieresButton, scrollToTopButton, createMovieElement);
+    renderMovies(
+      allMovies,
+      premieresItems,
+      premieresButton,
+      scrollToTopButton,
+      createMovieElement
+    );
     premieresTitle.textContent = "Премьеры";
   } catch (error) {
     premieresTitle.innerHTML = `Кажется, что что-то пошло не так: ${error.message}`;
   }
 }
 
-// Функция инициализация событий
 export function initialEventListeners() {
   premieresButton.addEventListener("click", () => {
-    renderMovies(allMovies, premieresItems, premieresButton, scrollToTopButton, createMovieElement);
+    renderMovies(
+      allMovies,
+      premieresItems,
+      premieresButton,
+      scrollToTopButton,
+      createMovieElement
+    );
   });
 
   scrollToTopButton.addEventListener("click", () => {
@@ -81,7 +96,6 @@ export function initialEventListeners() {
     scrollToTopButton.style.display = isVisible ? "block" : "none";
   });
 }
-
 
 document.addEventListener("DOMContentLoaded", async () => {
   loadNavBar();

@@ -12,7 +12,7 @@ export function loadFooter() {
             <a href="../../src/html/series_page.html" class="footer__nav-link">Сериалы</a>
           </li>
           <li class="footer__nav-item">
-            <a href="#" class="footer__nav-link">Популярные</a>
+            <a href="/index.html#popular-movies" class="footer__nav-link">Популярные</a>
           </li>
         </ul>
       </nav>
