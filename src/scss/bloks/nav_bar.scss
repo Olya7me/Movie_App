@@ -36,12 +36,6 @@
 
   &__search {
     display: none;
-    &-icon {
-      width: 25px;
-      height: 25px;
-      fill: $white;
-      transition: fill 0.2s ease-in-out;
-    }
   }
   &__burger {
     display: none;
@@ -139,17 +133,21 @@
       display: none;
       flex-direction: column;
       justify-content: center;
-      align-items: center;
+      align-items: start;
       position: absolute;
       top: 50px;
       right: 0;
       background-color: $primary-color;
       width: 100%;
-      padding: 20px 0;
+      padding: 15px 0;
+      z-index: 2;
 
       &.open {
         display: flex;
       }
+    }
+    &__nav-item {
+      padding-bottom: 15px;
     }
     &__burger {
       display: flex;
@@ -170,10 +168,8 @@
   }
 
   @media (max-width: 768px) {
-    padding: 0 10px;
-
     &__logo {
-      font-size: 16px;
+      font-size: 1.2rem;
     }
 
     &__burger {
@@ -187,6 +183,19 @@
     }
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 940px) {
+    &__burger {
+      left: 30px;
+    }
+  }
+  @media (max-width: 766px) {
+    &__burger {
+      left: 15px;
+    }
+  }
+  @media (max-width: 411px) {
+    &__logo {
+      font-size: 1rem;
+    }
   }
 }

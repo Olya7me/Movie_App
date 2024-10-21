@@ -10,6 +10,7 @@
     &-list {
       display: flex;
       justify-content: center;
+      color: $white;
     }
 
     &-item {
@@ -32,19 +33,34 @@
   }
   &__rights {
     color: $gray-color;
-    font-size: 12px;
+    font-size: 16px;
   }
-  @media (max-width: 768px) {
+  @media (max-width: 1024px) {
     &__nav {
       &-list {
         display: none;
       }
     }
     &__rights {
+      padding-bottom: 20px;
       display: flex;
       justify-content: center;
-      font-size: 10px;
+    }
+  }
+  @media (max-width: 768px) {
+    &__rights {
+      display: flex;
+      justify-content: center;
+      font-size: 0.8rem;
       padding-bottom: 15px;
+    }
+  }
+  @media (max-width: 411px) {
+    &__rights {
+      display: flex;
+      justify-content: center;
+      font-size: 0.6rem;
+      padding-bottom: 10px;
     }
   }
 }
