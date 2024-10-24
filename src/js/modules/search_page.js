@@ -93,7 +93,7 @@ export async function searchMovies(keyword) {
     allMovies = data;
 
     recommendItems.innerHTML = "";
-    renderMovies(allMovies);
+    renderMovies(allMovies, recommendItems, recommendButton, scrollToTopButton, createMovieElement);
     recommendTitle.textContent =
       allMovies.length > 0 || undefined
         ? "Результаты поиска"

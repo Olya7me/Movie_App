@@ -1,151 +1,153 @@
 .movie {
-  position: relative;
-  display: flex;
-  align-items: center;
-  width: 100%;
-  min-height: 100vh;
-  padding-right: 50px;
-  margin-bottom: 50px;
-  background-size: cover;
-  background-position: center;
-
-  &::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 400px;
-
-    background: linear-gradient(
-      to bottom,
-      rgba(0, 0, 0, 0) 0%,
-      rgb(0, 0, 0) 100%
-    );
-    z-index: 5;
-  }
-  &__content {
     position: relative;
-    max-width: 500px;
-    margin-left: 70px;
-    padding: 15px 20px 15px 0;
-
-    color: $white;
-    backdrop-filter: blur(20px);
-    border-radius: 20px;
-    z-index: 10;
-  }
-  &__bg-image {
-    position: absolute;
-    top: 0;
-    left: 0;
+    display: flex;
+    align-items: center;
     width: 100%;
-    height: 100%;
-
-    background-image: inherit;
+    min-height: 100vh;
+    padding-right: 50px;
+    margin-bottom: 50px;
     background-size: cover;
     background-position: center;
-    z-index: -1;
-  }
-  &__title {
-    margin-bottom: 20px;
 
-    font-weight: 500;
-    font-size: 3rem;
-    color: $accent-color;
-  }
-  &__description {
-    margin-bottom: 40px;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    max-height: 300px;
+    &::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 400px;
 
-    font-size: 20px;
-    letter-spacing: 0.1px;
-    color: inherit;
-    text-overflow: ellipsis;
-    -webkit-line-clamp: 6;
-    line-clamp: 6;
-    white-space: normal;
-  }
-  &__watch-btn {
-    @include button-style;
-  }
-  @media (min-width: 1024px) {
-    &__content {
-      margin-left: 60px;
-      max-width: 500px;
+        background: linear-gradient(
+            to bottom,
+            rgba(0, 0, 0, 0) 0%,
+            rgb(0, 0, 0) 100%
+        );
+        z-index: 5;
     }
-  }
-  @media (max-width: 940px) {
     &__content {
-      margin-left: 25px;
+        position: relative;
+        max-width: 500px;
+        margin-left: 70px;
+        padding: 15px 20px 15px 0;
+
+        color: $white;
+        backdrop-filter: blur(20px);
+        border-radius: 20px;
+        z-index: 10;
     }
-  }
-  @media (max-width: 768px) {
+    &__bg-image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+
+        background-image: inherit;
+        background-size: cover;
+        background-position: center;
+        z-index: -1;
+    }
     &__title {
-      font-size: 2.3rem;
+        margin-bottom: 20px;
+
+        font-weight: 500;
+        font-size: 3rem;
+        color: $accent-color;
     }
     &__description {
-      font-size: 1rem;
-    }
-    &__content {
-      margin-left: 30px;
-      max-width: 350px;
-    }
-  }
-
-  @media (max-width: 767px) {
-    flex-direction: column;
-    justify-content: center;
-    align-items: start;
-    padding-right: 0;
-    text-align: center;
-    background-size: cover;
-
-    &__content {
-      margin-left: 15px;
-      margin-right: 15px;
-      padding-left: 0;
-      max-width: 100%;
-      padding: 20px;
-    }
-
-    &__title {
-      font-size: 1.75rem;
-    }
-
-    &__description {
-      font-size: 0.87rem;
-    }
-
-    &__watch-btn {
-      font-size: 0.87rem;
-      padding: 10px 16px;
-    }
-  }
-  @media (max-width: 411px) {
-    .movie {
-      max-height: 30vh;
-      &__title {
-        font-size: 1.5rem;
-      }
-      &__description {
-        font-size: 0.75rem;
-        -webkit-line-clamp: 4;
-        line-clamp: 4;
-      }
-      &__watch-btn {
-        font-size: 0.75rem;
-        padding: 8px 12px;
-      }
-      &__content {
-        margin-left: 10px;
-        margin-right: 10px;
-        padding: 15px;
+        margin-bottom: 40px;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
         max-height: 300px;
-      }
+
+        font-size: 20px;
+        letter-spacing: 0.1px;
+        color: inherit;
+        text-overflow: ellipsis;
+        -webkit-line-clamp: 6;
+        line-clamp: 6;
+        white-space: normal;
     }
-  }
+    &__watch-btn {
+        @include button-style;
+    }
+    @media (min-width: 1024px) {
+        &__content {
+            margin-left: 60px;
+            max-width: 500px;
+        }
+    }
+    @media (max-width: 940px) {
+        &__content {
+            margin-left: 25px;
+        }
+    }
+    @media (max-width: 768px) {
+        &__title {
+            font-size: 2.3rem;
+        }
+        &__description {
+            font-size: 1rem;
+        }
+        &__content {
+            margin-left: 30px;
+            max-width: 350px;
+        }
+    }
+
+    @media (max-width: 767px) {
+        min-height: 60vh;
+        flex-direction: column;
+        justify-content: center;
+        align-items: start;
+        padding-right: 0;
+        text-align: center;
+        background-size: cover;
+        margin-bottom: 0;
+
+        &__content {
+            margin-left: 15px;
+            margin-right: 15px;
+            padding-left: 0;
+            max-width: 100%;
+            padding: 20px;
+        }
+
+        &__title {
+            font-size: 1.75rem;
+        }
+
+        &__description {
+            font-size: 0.87rem;
+        }
+
+        &__watch-btn {
+            font-size: 0.87rem;
+            padding: 10px 16px;
+        }
+    }
+    @media (max-width: 411px) {
+        .movie {
+            min-height: 50vh;
+            &__title {
+                font-size: 1.5rem;
+            }
+            &__description {
+                font-size: 0.75rem;
+                -webkit-line-clamp: 4;
+                line-clamp: 4;
+            }
+            &__watch-btn {
+                font-size: 0.75rem;
+                padding: 8px 12px;
+            }
+            &__content {
+                margin-left: 10px;
+                margin-right: 10px;
+                padding: 15px;
+                max-height: 300px;
+            }
+        }
+    }
 }
