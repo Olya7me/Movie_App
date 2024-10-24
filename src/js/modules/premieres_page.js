@@ -15,8 +15,6 @@ const scrollToTopButton = document.querySelector(
 );
 
 let allMovies = [];
-let currentIndex = 0;
-const moviesPerPage = 10;
 
 function showSkeleton() {
   premieresItems.innerHTML = `
@@ -42,8 +40,8 @@ function createMovieElement(movie) {
         <p class="premieres__item-type">${movie.premiereRu}</p>
       </div>
       <p class="premieres__item-genre">${movie.genres
-        .map((genre) => genre.genre)
-        .join(", ")}</p>
+      .map((genre) => genre.genre)
+      .join(", ")}</p>
     </div>
   `;
   return movieElement;

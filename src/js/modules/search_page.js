@@ -211,8 +211,8 @@ function createMovieElement(movie) {
     movie.type === "FILM"
       ? "Фильм"
       : movie.type === "TV_SERIES"
-      ? "Сериал"
-      : "Шоу";
+        ? "Сериал"
+        : "Шоу";
 
   movieElement.innerHTML = `
         <img src="${movie.posterUrlPreview}" alt="${movie.nameRu}">
@@ -223,8 +223,8 @@ function createMovieElement(movie) {
                 <p class="recommend__item-type">${movieType}</p>
             </div>
             <p class="recommend__item-genre">${movie.genres
-              .map((genre) => `${genre.genre}`)
-              .join(", ")}</p>
+      .map((genre) => `${genre.genre}`)
+      .join(", ")}</p>
         </div>
     `;
   return movieElement;
