@@ -1,5 +1,10 @@
 .header {
   display: flex;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
   justify-content: space-between;
   align-items: center;
   height: 50px;
@@ -140,7 +145,7 @@
       background-color: $primary-color;
       width: 100%;
       padding: 15px 0;
-      z-index: 2;
+      z-index: 100;
 
       &.open {
         display: flex;
@@ -196,6 +201,17 @@
   @media (max-width: 411px) {
     &__logo {
       font-size: 1rem;
+    }
+  }
+  @media (max-width: 360px) {
+    &__logo {
+      font-size: 0.8rem;
+    }
+    &__toggle {
+      input[type="checkbox"] {
+        width: 15px;
+        height: 15px;
+      }
     }
   }
 }

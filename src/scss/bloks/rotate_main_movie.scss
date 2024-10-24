@@ -6,7 +6,6 @@
   min-height: 100vh;
   padding-right: 50px;
   margin-bottom: 50px;
-
   background-size: cover;
   background-position: center;
 
@@ -73,10 +72,9 @@
   &__watch-btn {
     @include button-style;
   }
-  @media (min-width: 939px) {
+  @media (min-width: 1024px) {
     &__content {
       margin-left: 60px;
-
       max-width: 500px;
     }
   }
@@ -87,10 +85,10 @@
   }
   @media (max-width: 768px) {
     &__title {
-      font-size: 36px;
+      font-size: 2.3rem;
     }
     &__description {
-      font-size: 16px;
+      font-size: 1rem;
     }
     &__content {
       margin-left: 30px;
@@ -105,7 +103,6 @@
     padding-right: 0;
     text-align: center;
     background-size: cover;
-    height: 110vh;
 
     &__content {
       margin-left: 15px;
@@ -116,16 +113,39 @@
     }
 
     &__title {
-      font-size: 28px;
+      font-size: 1.75rem;
     }
 
     &__description {
-      font-size: 14px;
+      font-size: 0.87rem;
     }
 
     &__watch-btn {
-      font-size: 14px;
+      font-size: 0.87rem;
       padding: 10px 16px;
+    }
+  }
+  @media (max-width: 411px) {
+    .movie {
+      max-height: 30vh;
+      &__title {
+        font-size: 1.5rem;
+      }
+      &__description {
+        font-size: 0.75rem;
+        -webkit-line-clamp: 4;
+        line-clamp: 4;
+      }
+      &__watch-btn {
+        font-size: 0.75rem;
+        padding: 8px 12px;
+      }
+      &__content {
+        margin-left: 10px;
+        margin-right: 10px;
+        padding: 15px;
+        max-height: 300px;
+      }
     }
   }
 }
