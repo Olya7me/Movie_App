@@ -1,168 +1,177 @@
 .premieres-page {
-    padding: 80px 0;
-    &__container {
-        @include content-container;
-    }
+  padding: 80px 0;
+  &__container {
+    @include content-container;
+  }
 
-    &__scroll-to-top {
-        @include scrollToTopButtonStyles($accent-color, $search-hover-color);
-    }
+  &__scroll-to-top {
+    @include scrollToTopButtonStyles($accent-color, $search-hover-color);
+  }
 }
 
 .premieres {
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
+  flex-wrap: wrap;
+
+  &__title {
+    @include title;
+  }
+
+  &__items {
+    @include items-container;
+  }
+
+  &__item {
+    @include item;
+  }
+
+  &__item-title {
+    @include item-title;
+  }
+
+  &__item-info {
+    @include item-info;
+  }
+  &__item-description {
     display: flex;
-    flex-direction: column;
-    max-width: 100%;
-    flex-wrap: wrap;
+    gap: 5px;
+  }
+  &__button {
+    @include button-style;
+  }
 
-    &__title {
-        @include title;
-    }
+  &__skeleton-container {
+    @include skeleton-container;
+  }
 
+  &__skeleton-item {
+    @include skeleton-item;
+  }
+}
+
+@media (max-width: 1250px) {
+  .premieres {
     &__items {
-        @include items-container;
-    }
-
-    &__item {
-        @include item;
-    }
-
-    &__item-title {
-        @include item-title;
-    }
-
-    &__item-info {
-        @include item-info;
-    }
-    &__item-description {
-        display: flex;
-        gap: 5px;
-    }
-    &__button {
-        @include button-style;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-gap: 30px;
+      justify-content: center;
+      margin: 0 auto;
     }
 
     &__skeleton-container {
-        @include skeleton-container;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-gap: 30px;
+      justify-content: center;
+      margin: 0 auto;
     }
-
-    &__skeleton-item {
-        @include skeleton-item;
+    &__button {
+      margin-top: 30px;
     }
-}
-
-@media (max-width: 1260px) {
-    .premieres {
-        &__items {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            grid-gap: 30px;
-            justify-content: center;
-            margin: 0 auto;
-        }
-
-        &__skeleton-container {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            grid-gap: 30px;
-            justify-content: center;
-            margin: 0 auto;
-        }
-        &__button {
-            margin-top: 30px;
-        }
-    }
+  }
 }
 
 @media (max-width: 1030px) {
-    .premieres {
-        &__title {
-            font-size: 1.8rem;
-        }
-        &__items {
-            grid-template-columns: repeat(3, 1fr);
-            grid-column-gap: 30px;
-            justify-content: space-around;
-        }
-        &__skeleton-wrapper {
-            margin: 0 auto;
-        }
-        &__skeleton-container {
-            grid-template-columns: repeat(3, 1fr);
-            grid-column-gap: 30px;
-        }
+  .premieres {
+    &__title {
+      font-size: 1.8rem;
     }
+    &__items {
+      grid-template-columns: repeat(3, 1fr);
+      grid-column-gap: 30px;
+      justify-content: space-around;
+    }
+
+    &__skeleton-wrapper {
+      margin: 0 auto;
+}
+    &__skeleton-container {
+      grid-template-columns: repeat(3, 1fr);
+      grid-column-gap: 30px;
+    }
+  }
 }
 
 @media (max-width: 799px) {
-    .premieres {
-        margin-left: 60px;
-
-        &__items {
-            grid-template-columns: repeat(2, 1fr);
-            grid-column-gap: 10px;
-            justify-content: space-between;
-        }
-        &__skeleton-container {
-            grid-template-columns: repeat(2, 1fr);
-            grid-column-gap: 45px;
-            justify-content: space-between;
-        }
+  .premieres {
+    &__items {
+      grid-template-columns: repeat(2, 1fr);
+      grid-column-gap: 45px;
+      justify-content: space-between;
     }
+    &__skeleton-container {
+      grid-template-columns: repeat(2, 1fr);
+      grid-column-gap: 45px;
+      justify-content: space-between;
+    }
+  }
 }
 
 @media (max-width: 689px) {
-    .premieres {
-        &__title {
-            font-size: 1.5rem;
-        }
-        &__skeleton-container {
-            margin: 0 auto !important;
-        }
+  .premieres {
+    padding-right: 15px;
+    &__title {
+      font-size: 1.5rem;
     }
+  }
 }
 
 @media (max-width: 559px) {
-    .premieres {
-        &__items {
-            grid-column-gap: 20px;
-        }
-        &__skeleton-container {
-            grid-column-gap: 20px;
-        }
+  .premieres {
+    &__items {
+      grid-column-gap: 20px;
     }
+    &__skeleton-container {
+      grid-column-gap: 20px;
+    }
+  }
 }
 
 @media (max-width: 530px) {
-    .premieres {
-        &__items {
-            grid-template-columns: repeat(1, 1fr);
-            grid-column-gap: 20px;
-        }
-        &__item {
-            margin-bottom: 100px;
-            max-width: 300px;
-            height: 390px;
-        }
-        &__skeleton-container {
-            grid-template-columns: repeat(1, 1fr);
-            grid-column-gap: 20px;
-        }
-        &__skeleton-item {
-            margin-bottom: 100px;
-            max-width: 300px;
-            height: 390px;
-        }
+  .premieres {
+    &__items {
+      grid-template-columns: repeat(1, 1fr);
+      grid-column-gap: 20px;
     }
+    &__item {
+      margin-bottom: 100px;
+      max-width: 300px;
+      height: 390px;
+    }
+    &__skeleton-container {
+      grid-template-columns: repeat(1, 1fr);
+      grid-column-gap: 20px;
+    }
+    &__skeleton-item {
+      margin-bottom: 100px;
+      max-width: 300px;
+      height: 390px;
+    }
+  }
+}
+@media (max-width: 390px) {
+  .premieres {
+    &__container {
+      padding-left: 10px;
+      padding-right: 20px;
+    }
+  }
 }
 
 @media (max-width: 350px) {
-    .premieres {
-        &__item {
-            max-width: 270px;
-        }
-        &__skeleton-item {
-            width: 270px;
-        }
+  .premieres {
+    &__item {
+      max-width: 270px;
     }
+    &__skeleton-item {
+      width: 270px;
+    }
+    &-button {
+      padding: 10px 15px;
+      font-size: 16px;
+    }
+  }
 }

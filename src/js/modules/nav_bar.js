@@ -18,6 +18,10 @@ export function loadNavBar() {
           <a href="/index.html#popular-movies" class="header__nav-link popular">Популярные</a>
         </li>
         <li class="header__nav-item item">
+          <a href="../../src/html/premieres_page.html" class="header__nav-link header__search" id="search">
+            Премьеры
+          </a>
+        <li class="header__nav-item item">
           <a href="../../src/html/search_page.html" class="header__nav-link header__search" id="search">
             Поиск
           </a>
