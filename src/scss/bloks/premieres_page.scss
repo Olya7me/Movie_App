@@ -84,9 +84,10 @@
       grid-column-gap: 30px;
       justify-content: space-around;
     }
+
     &__skeleton-wrapper {
       margin: 0 auto;
-    }
+}
     &__skeleton-container {
       grid-template-columns: repeat(3, 1fr);
       grid-column-gap: 30px;
