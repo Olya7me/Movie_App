@@ -279,6 +279,9 @@
                 grid-column-gap: 30px;
                 justify-content: center;
             }
+            &__button {
+                margin-top: 30px;
+            }
         }
         &__scroll-to-top {
             display: none !important;
@@ -355,6 +358,9 @@
         .recommend {
             &__items {
                 grid-column-gap: 20px;
+            }
+            &__button {
+                margin-top: 0;
             }
         }
     }

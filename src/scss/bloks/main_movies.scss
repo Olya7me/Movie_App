@@ -90,9 +90,6 @@
             overflow-x: scroll;
             -webkit-overflow-scrolling: touch;
             scroll-behavior: smooth;
-            .movies-item {
-                flex: 0 0 calc(100% / 4);
-            }
         }
     }
     .next-arrow,
@@ -106,24 +103,6 @@
         .movies-title {
             font-size: 1.5rem;
         }
-        .items-wrapper {
-            .movies-items {
-                .movies-item {
-                    flex: 0 0 calc(100% / 3);
-                }
-            }
-        }
-    }
-}
-@media (max-width: 710px) {
-    .container {
-        .items-wrapper {
-            .movies-items {
-                .movies-item {
-                    flex: 0 0 calc(100% / 2);
-                }
-            }
-        }
     }
 }
 @media (max-width: 490px) {
@@ -131,11 +110,6 @@
         .movies-title {
             font-size: 1.2rem;
             padding-right: 10px;
-        }
-        .items-wrapper {
-            .movies-item {
-                flex: 0 0 100%;
-            }
         }
     }
 }
