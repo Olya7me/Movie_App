@@ -75,3 +75,75 @@ npm start
 ## 🤝 Контакты
 - 📧 Email: gumnukolga@gmail.com
 - 🌐 Профиль GitHub: https://github.com/Olya7me
+
+
+# 🎬 MovieSearch
+
+**MovieSearch** is an interactive web application for searching, viewing, and managing movie lists.  
+The project demonstrates foundational skills in HTML, SCSS, JavaScript, and modular architecture.  
+<img width="1440" alt="Screenshot 1" src="https://github.com/user-attachments/assets/6b361bba-15aa-4e1d-b12e-fada294f0755" />
+<img width="1440" alt="Screenshot 2" src="https://github.com/user-attachments/assets/7904895c-a968-417a-aa55-217f09f12717" />
+
+---
+
+## 📂 Table of Contents
+
+1. [Description](#description)  
+2. [Features](#features)  
+3. [Technologies](#technologies)  
+4. [Installation and Setup](#installation-and-setup)  
+5. [Contacts](#contacts)  
+
+---
+
+## 📝 Description
+
+**MovieSearch** allows users to:  
+- Discover popular movies.  
+- Browse seasonal movie collections.  
+- Navigate between categories with a user-friendly interface.  
+- Get inspired by superhero-themed movies through a dedicated comics section.  
+
+The application focuses on responsive design, minimalistic interface, and clean code.
+
+---
+
+## ✨ Features
+
+- 🔹 Display of popular movies.  
+- 🔹 Navigation between categories (popular, seasonal, comics).  
+- 🔹 Responsive design for all devices.  
+- 🔹 Dynamic content management via JavaScript.  
+
+---
+
+## 💻 Technologies
+
+This project was built using the following technologies:  
+
+- HTML5  
+- SCSS (SASS)  
+- JavaScript (ES6+)  
+- Normalize.css  
+
+---
+
+## 🚀 Installation and Setup
+
+To run the project, follow these steps:
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/your-username/Movi
+
+2. Install dependencies:
+npm install
+
+3. Start the local server:
+npm start
+The application will be available at http://localhost:3000.
+
+## 🤝 Contacts
+- 📧 Email: gumnukolga@gmail.com
+- 🌐 GitHub Profile: https://github.com/Olya7me
