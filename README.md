@@ -2,9 +2,8 @@
 
 **Movie App** - это интерактивное веб-приложение для поиска, просмотра и управления списками фильмов.  
 Проект демонстрирует базовые навыки работы с HTML, SCSS, JavaScript и модульной архитектурой.  
-<img width="1440" alt="Снимок экрана 2025-01-03 в 15 09 53" src="https://github.com/user-attachments/assets/f2bccbdc-e924-4247-bdea-f5717b9e623e" />
-<img width="1440" alt="Снимок экрана 2025-01-03 в 15 10 02" src="https://github.com/user-attachments/assets/51e797d6-6375-4195-b31f-7e1d17e2026e" />
-
+<img width="1440" alt="Снимок экрана 2025-01-03 в 15 09 53" src="https://github.com/user-attachments/assets/6b361bba-15aa-4e1d-b12e-fada294f0755" />
+<img width="1440" alt="Снимок экрана 2025-01-03 в 15 10 02" src="https://github.com/user-attachments/assets/7904895c-a968-417a-aa55-217f09f12717" />
 
 ---
 
@@ -74,5 +73,5 @@ npm start
 Проект будет доступен по адресу http://localhost:3000.
 
 ## 🤝 Контакты
-📧 Email: gumnukolga@gmail.com
-🌐 Профиль GitHub: https://github.com/Olya7me
+- 📧 Email: gumnukolga@gmail.com
+- 🌐 Профиль GitHub: https://github.com/Olya7me
