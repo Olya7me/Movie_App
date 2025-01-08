@@ -12,8 +12,9 @@
 1. [Описание](#описание)  
 2. [Функциональность](#функциональность)  
 3. [Технологии](#технологии)  
-4. [Установка и запуск](#установка-и-запуск)  
-5. [Контакты](#контакты)  
+4. [Установка и запуск](#установка-и-запуск)
+5. [Соавторы](#соавторы)  
+6. [Контакты](#контакты)  
 
 ---
 
@@ -57,20 +58,24 @@
 
    ```bash
    git clone https://github.com/ваш-юзернейм/Movie_App.git
-   cd Movie_App
+
    
-2.Установите зависимости:
+2. Установите зависимости:
+   ```bash
+   npm install
 
-bash
-Копировать код
-npm install
 
-3.Запустите локальный сервер:
+3. Запустите локальный сервер:
+   ```bash
+   npm start
+   
+---
 
-bash
-Копировать код
-npm start
-Проект будет доступен по адресу http://localhost:3000.
+## 👨‍💻 Соавторы
+
+<a href="https://github.com/Milareina">
+  <img src="https://avatars.githubusercontent.com/u/Milareina?s=100" alt="Milareina" width="100" style="border-radius: 50%;" />
+</a>
 
 ## 🤝 Контакты
 - 📧 Email: gumnukolga@gmail.com
@@ -81,8 +86,6 @@ npm start
 
 **MovieSearch** is an interactive web application for searching, viewing, and managing movie lists.  
 The project demonstrates foundational skills in HTML, SCSS, JavaScript, and modular architecture.  
-<img width="1440" alt="Screenshot 1" src="https://github.com/user-attachments/assets/6b361bba-15aa-4e1d-b12e-fada294f0755" />
-<img width="1440" alt="Screenshot 2" src="https://github.com/user-attachments/assets/7904895c-a968-417a-aa55-217f09f12717" />
 
 ---
 
@@ -91,8 +94,9 @@ The project demonstrates foundational skills in HTML, SCSS, JavaScript, and modu
 1. [Description](#description)  
 2. [Features](#features)  
 3. [Technologies](#technologies)  
-4. [Installation and Setup](#installation-and-setup)  
-5. [Contacts](#contacts)  
+4. [Installation and Setup](#installation-and-setup)
+5. [Contributors](#сontributors)
+6. [Contacts](#contacts)  
 
 ---
 
@@ -138,11 +142,20 @@ To run the project, follow these steps:
    git clone https://github.com/your-username/Movi
 
 2. Install dependencies:
-npm install
+   ```bash
+   npm install
 
 3. Start the local server:
-npm start
-The application will be available at http://localhost:3000.
+   ```bash
+   npm start
+---
+## 👨‍💻 Contributors
+
+Thanks to these awesome people who contributed to this project:
+
+<a href="https://github.com/Milareina">
+  <img src="https://avatars.githubusercontent.com/u/Milareina?s=100" alt="Milareina" width="100" style="border-radius: 50%;" />
+</a>
 
 ## 🤝 Contacts
 - 📧 Email: gumnukolga@gmail.com
