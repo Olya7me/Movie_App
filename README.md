@@ -2,6 +2,7 @@
 
 **MovieSearch** - это интерактивное веб-приложение для поиска, просмотра и управления списками фильмов.  
 Проект демонстрирует базовые навыки работы с HTML, SCSS, JavaScript и модульной архитектурой.  
+
 <img width="1440" alt="Снимок экрана 2025-01-03 в 15 09 53" src="https://github.com/user-attachments/assets/6b361bba-15aa-4e1d-b12e-fada294f0755" />
 <img width="1440" alt="Снимок экрана 2025-01-03 в 15 10 02" src="https://github.com/user-attachments/assets/7904895c-a968-417a-aa55-217f09f12717" />
 
@@ -57,7 +58,7 @@
 1. Клонируйте репозиторий:
 
    ```bash
-   git clone https://github.com/ваш-юзернейм/Movie_App.git
+   https://github.com/Olya7me/Movie_App.git
 
    
 2. Установите зависимости:
@@ -139,7 +140,7 @@ To run the project, follow these steps:
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/your-username/Movi
+   https://github.com/Olya7me/Movie_App.git
 
 2. Install dependencies:
    ```bash
