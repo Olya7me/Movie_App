@@ -76,7 +76,7 @@ https://github.com/user-attachments/assets/d0d9adef-ee12-45a8-9918-30e9eaa28042
 ## 👨‍💻 Соавторы
 
 <a href="https://github.com/Milareina">
-  <img src="https://avatars.githubusercontent.com/u/Milareina?s=100" alt="Milareina" width="100" style="border-radius: 50%;" />
+  <img src="https://github.com/Milareina.png?s=100" alt="Milareina" width="100" />
 </a>
 
 ## 🤝 Контакты
